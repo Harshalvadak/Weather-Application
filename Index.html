@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+<style>
+ * {
+            margin: 0;
+            padding: 0;
+        }
+	 body {
+	 		display:flex;
+	 		flex-direction:Column;
+            background: url(wheather.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            font-family: "Open Sans", sans-serif;
+            text-align: center;
+        }
+
+       
+
+        nav {
+            
+            padding: 5px;
+            height: 50px;
+            width: 1210px;
+            background-color: rgba(22, 15, 15, 0.423);
+            display: flex;
+            flex-direction: row;
+            justify-content:space-between;
+        }
+
+        nav>h1 {
+            color: white;
+            margin-top: 10px;
+            margin-left: 10px;
+            font-family: 'Times New Roman', Times, serif;
+
+        }
+
+        .inav {
+            color: white;
+            margin-top: 10px;
+            margin-right: 40px;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-image: url(background.jpg);
+            border-radius: 25px;
+            margin-top: 50px;
+            height: 450px;
+            width: 400px;
+
+        }
+
+        #searchInput {
+           
+            padding:5px;
+            border-radius:10px;
+            height: 35px;
+            width: 315px;
+        }
+
+        #searchButton {
+            
+            border-radius:10px;
+            height: 35px;
+            width: 35px;
+        }
+
+        #searchInput:hover {
+            border: 2px solid black;
+
+        }
+        .container >h3{
+            color:dark grey;
+            font-style: oblique;
+            font-weight: 600;
+        }
+        .time
+        {
+        	text-shadow:2px 2px  black;
+            color:white;
+            font-weight: 700;
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding:15px;
+            margin-top:40px;
+            font-style: unset;
+        }
+        .time >h1{
+            margin-right:60px;
+        }
+
+</style>
+</head>
+
+<body>
+	
+	 <nav>
+
+        <h1>Weather App </h1>
+        <div class="inav">
+            <h3>Home </h3>
+            <h3>Help</h3>
+            <h3>About </h3>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+
+            <img src="WeatherIcons.gif" alt="maxx" height="200px" width="200px">
+
+           	<h3>Enter your city name</h3>
+            <form action="MyServlet" method="post" class="searchInput">
+                <input type="text" placeholder="Eg. Pune , MUmbai " id="searchInput" name="city" />
+                <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+			<footer class="time">
+                
+                <h1 id="Current-time"></h1>
+                <h1>Pune</h1>
+
+
+            </footer>
+
+            
+				
+        </div>
+    </main>  
+
+
+
+
+
+ 	<script>
+     	let time=document.getElementById("Current-time");
+
+    	setInterval(() =>{
+        	let d = new Date();
+        	time.innerHTML =d.toLocaleTimeString();
+   		 },1000)
+	</script>
+</body>
+</html>
